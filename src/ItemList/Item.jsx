@@ -4,14 +4,14 @@ import DefaultButton from '../components/Button/DefaultButton'
 import { Link } from 'react-router-dom';
 
 
-function Item(props) {
-  const urlDetail = `/detail/${props.id}`;
+function Item({ product }) {
+  const urlDetail = `/detail/${product.id}`;
 
   return (
     <div className='item'>
-        <img src={props.img} alt={props.title} srcSet="" />
-        <h2>{props.title}</h2>
-        <h3>${props.price}.-</h3>
+        <img src={product.img} alt={product.title} srcSet="" />
+        <h2>{product.title}</h2>
+        <h3>${product.price}.-</h3>
 
         <Link to={urlDetail}>
           <DefaultButton> Ver mas </DefaultButton>

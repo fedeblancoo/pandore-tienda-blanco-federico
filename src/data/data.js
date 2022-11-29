@@ -4,7 +4,7 @@ const products = [
         title: "Abrigo", 
         price: 5000, 
         img: "./img/abrigo.jpg", 
-        stock:1,
+        stock:5,
         category:"Abrigo"
       },
       {
@@ -12,7 +12,7 @@ const products = [
         title: "Borcegos",
         price: 4100, 
         img: "./img/borcegos.jpg", 
-        stock:1,
+        stock:10,
         category:"Calzado"
       },
       {
@@ -20,7 +20,7 @@ const products = [
         title: "Cartera", 
         price: 2500, 
         img: "./img/cartera.jpg", 
-        stock:1,
+        stock:4,
         category:"Accesorio"
       },
       {
@@ -28,7 +28,7 @@ const products = [
         title: "Chaleco", 
         price: 3500, 
         img: "./img/chaleco.jpg", 
-        stock:1,
+        stock:6,
         category:"Abrigo"
       },
       {
@@ -36,7 +36,7 @@ const products = [
         title: "Falda", 
         price: 3200, 
         img: "./img/falda.jpg", 
-        stock:1,
+        stock:12,
         category:"Falda"
       },
       {
@@ -44,7 +44,7 @@ const products = [
         title: "Top", 
         price: 3700, 
         img: "./img/top.jpg", 
-        stock:1,
+        stock:10,
         category:"Top"
       }
 ]

@@ -6,28 +6,31 @@ import { useParams } from "react-router-dom";
  
  function ItemListContainer() {
     const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     const paramsUrl = useParams();
     const idCategory = paramsUrl.idCategory;
 
   useEffect(
     () => {
-      getItems(idCategory).then((respuestaDatos) => setProducts(respuestaDatos), []);
+      getItems(idCategory).then((respuestaDatos) =>{
+       setProducts(respuestaDatos);
+       setIsLoading(false);
+      }, []);
     }
   )
+    if (isLoading)
+    return (
+      <div className='div-loader'>
+        <div className='lds-dual-ring'></div>
+      </div>
+    )
 
    return (
     <div className='item-list'>
         {products.map ((product) => {
                 return (
-                    <Item 
-                    key={product.id}
-                    id={product.id}
-                    title={product.title}
-                    price={product.price}
-                    img={product.img}
-                    />
-                    
+                    <Item product= {product} key={product.id}/>
                 )
             })
         }
@@ -36,3 +39,4 @@ import { useParams } from "react-router-dom";
  }
  
  export default ItemListContainer
+

@@ -1,30 +1,36 @@
 import React, {useState, useEffect} from 'react';
 import {getSingleItem} from '../../Services/MockService';
 import ItemDetail from './ItemDetail';
-import { useParams, UseParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
  
  function ItemDetailContainer() {
     const [product, setProduct] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     const paramsUrl = useParams();
     const id = paramsUrl.id;
 
   useEffect(
     () => {
-      getSingleItem(id).then((respuestaDatos) => setProduct(respuestaDatos), []);
+      getSingleItem(id).then((respuestaDatos) => {
+      setProduct(respuestaDatos);
+      setIsLoading(false)
+    },
+      []);
     }
   )
 
-   return (
-    <div className='item-list'>
-        <ItemDetail 
-        title={product.title}
-        price={product.price}
-        img={product.img}
-        />
-    </div>
-   )
+  if (isLoading)
+    return ( 
+      <div className='div-loader'>
+        <div className='lds-dual-ring'></div>
+      </div> 
+    )
+    
+    return (
+      <ItemDetail product={product}/> 
+    )
  }
  
  export default ItemDetailContainer

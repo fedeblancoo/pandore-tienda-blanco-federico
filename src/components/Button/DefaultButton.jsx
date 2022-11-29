@@ -2,7 +2,9 @@ import "./DefaultButton.css";
 
 function DefaultButton (props) {
     return (
-        <button>{props.children} </button>
+        <button className="default-button" onClick={props.onClick} >
+            {props.children} 
+        </button>
     )
 }
 
